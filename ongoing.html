@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM PORTAL</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="./script/dashboard.js" defer></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .active {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="flex w-screen h-screen">
+      <!-- SIDE BAR 1-->
+      <div
+        class="hidden lg:flex flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item6.svg" alt="home" /></a>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        class="w-52 hidden lg:flex flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+
+      <div class="flex flex-col w-full">
+        <!-- TOP BAR -->
+        <div
+          class="flex justify-between lg:justify-end items-center border-b border-[#EEEEEE]"
+        >
+          <div class="w-[30px] h-[auto] ml-7 lg:hidden">
+            <img src="./assets/leadway-logo.svg" alt="leadway-logo" />
+          </div>
+
+          <div class="flex items-center justify-end gap-4 p-4">
+            <a href="#"
+              ><img src="./assets/notificationbell.svg" alt="home"
+            /></a>
+            <a href="#"><img src="./assets/avatar.svg" alt="home" /></a>
+            <span class="">Adesola</span>
+            <a href="#"><img src="./assets/caret.svg" alt="home" /></a>
+
+            <div class="w-[20px] h-[auto] lg:hidden">
+              <img
+                id="menuIcon"
+                class="open"
+                src="./assets/menu-open.svg"
+                alt="open"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN DASHBOARD AREA -->
+        <div class="flex flex-col p-10 gap-10 overflow-auto bg-[#FDFDFD]">
+          <main>
+            <!-- header -->
+            <div class="header my-5">
+              <p class="text-xl font-bold text-[#34475e]">
+                Rovenheight Properties
+              </p>
+              <p class="text-sm font-normal text-[#2f2f2f]">
+                See Inspection request details
+              </p>
+            </div>
+            <!-- body -->
+            <div class="flex flex-col sm:flex-row text-gray-500 font-sans">
+              <div class="idcard mr-8">
+                <div class="bg-white p-6 shadow card mb-12">
+                  <div class="mt-5">
+                    <img
+                      src="../assets/leadwayperson.jpeg"
+                      alt="Goodness Ibeneme"
+                      class="w-[188px] h-[166px] mx-auto rounded-lg"
+                    />
+                    <p class="text-center mt-2.5">Goodness Ibeneme</p>
+                  </div>
+                  <div class="status mt-5">
+                    <p>
+                      <span class="text-[#00b388] text-sm"
+                        >Inspection Status:</span
+                      >
+                      <span class="text-[#ff7a00] text-sm">ongoing</span>
+                    </p>
+                  </div>
+                  <div class="details">
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Claim Number</p>
+                      <p class="text-base leading-4 py-0.5">ASD12358493</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Policy Number</p>
+                      <p class="text-base leading-4 py-0.5">MTR12358493</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Commencement Date</p>
+                      <p class="text-base leading-4 py-0.5">31 May 2022</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Sum Assured (N)</p>
+                      <p class="text-base leading-4 py-0.5">1,000,000</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Premium (N)</p>
+                      <p class="text-base leading-4 py-0.5">10,000</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Vehicle Type</p>
+                      <p class="text-base leading-4 py-0.5">Car</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">
+                        Policy Term (Years)
+                      </p>
+                      <p class="text-base leading-4 py-0.5">5</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Expiry Date</p>
+                      <p class="text-base leading-4 py-0.5">19 Dec. 2024</p>
+                    </div>
+                    <div class="pl-10 mt-5">
+                      <p class="text-xs leading-3 py-0.5">Damage Type</p>
+                      <p class="text-base leading-4 py-0.5">
+                        Interior (engine)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="west flex flex-row w-2/3">
+                <!-- Divider -->
+
+                <div class="bg-[#D3D0D0] w-[2px] h-1/3 ml-4 mt-2"></div>
+
+                <!-- minicard house starts-->
+                <div class="container">
+                  <!-- minicard starts-->
+
+                  <p
+                    class="text-xs relative text-[#A7A7A7] font-semibold pl-10 font-Poppins mb-1 before:inline-block before:bg-[#FF7A00] before:w-4 before:h-4 before:rounded-full before:ml-[-9px] before:absolute before:left-0 before:mt-1"
+                  >
+                    25 Jan, 2020 9:39 AM
+                  </p>
+
+                  <div
+                    class="w-full border border-lightgrey ml-4 sm:ml-20 mb-12 rounded flex flex-col sm:flex-row justify-between border-l-8 border-l-[#f97316]"
+                  >
+                    <div class="flex flex-col sm:flex-row w-full h-full">
+                      <div
+                        class="flex-1 flex flex-col justify-between p-2 pl-10"
+                      >
+                        <div class="flex flex-row gap-2 mt-4">
+                          <img src="../assets/file.png" class="w-6 h-7" />
+                          <div>
+                            <p class="text-sm font-bold text-[#34475E]">
+                              You created request for Post Loss Inspection
+                            </p>
+                            <p class="text-xs text-orange-500 font-extrabold">
+                              Leadway Assurance
+                            </p>
+                          </div>
+                        </div>
+                        <div class="flex flex-row gap-2 mt-4 pb-2.5">
+                          <img src="../assets/reqball.png" class="w-4 h-4" />
+                          <p class="text-xs">Documents reviewed</p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center justify-center sm:justify-end mt-4 sm:mt-0 p-2"
+                      >
+                        <button
+                          id="viewSurvey"
+                          class="w-40 h-10 bg-orange-500 text-white text-sm rounded"
+                        >
+                          View request
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p
+                    class="text-xs relative text-[#A7A7A7] font-semibold pl-10 font-Poppins mb-1 before:inline-block before:bg-[#FF7A00] before:w-4 before:h-4 before:rounded-full before:ml-[-9px] before:absolute before:left-0 before:mt-1"
+                  >
+                    24 Jan, 2020 5:00 PM
+                  </p>
+                  <div
+                    class="w-full border border-lightgrey ml-4 sm:ml-10 mb-12 rounded flex flex-col sm:flex-row justify-between border-l-8 border-l-gray-400"
+                  >
+                    <div class="flex flex-col sm:flex-row w-full h-full">
+                      <div
+                        class="flex-1 flex flex-col justify-between p-2 pl-10"
+                      >
+                        <div class="flex flex-row gap-2 mt-4">
+                          <img src="../assets/file.png" class="w-6 h-7" />
+                          <div>
+                            <p class="text-sm font-bold text-[#34475E]">
+                              You created request for Post Loss Inspection
+                            </p>
+                            <p class="text-xs text-orange-500 font-extrabold">
+                              Leadway Assurance
+                            </p>
+                          </div>
+                        </div>
+                        <div class="flex flex-row gap-2 mt-4 pb-2.5">
+                          <img src="./assets/greenball.png" class="w-4 h-4" />
+                          <p class="text-xs">Assigned to Engineer Olaniyi</p>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center justify-center sm:justify-end mt-4 sm:mt-0 p-2"
+                      >
+                        <button
+                          class="w-40 h-10 bg-gray-300 text-gray-800 text-sm rounded"
+                        >
+                          Re-Assign
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="flex h-screen absolute left-0 top-0 z-10">
+      <!-- SIDE BAR 1-->
+      <div
+        id="sidebarOne"
+        class="hidden flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        </span>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        </span>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        id="sidebarTwo"
+        class="w-52 hidden flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE] bg-[#fff]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".toggle-button");
+        const contents = document.querySelectorAll(".content");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+            contents.forEach((content) => {
+              if (content.classList.contains(target)) {
+                content.classList.remove("hidden");
+              } else {
+                content.classList.add("hidden");
+              }
+            });
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+      });
+      document
+        .getElementById("viewSurvey")
+        .addEventListener("click", function () {
+          window.location.href = "/surveyreport.html";
+        });
+    </script>
+  </body>
+</html>

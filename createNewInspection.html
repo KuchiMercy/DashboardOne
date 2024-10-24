@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM PORTAL</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="output.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/completedinspectionlist.js" defer></script>
+    <script src="./script/dashboard.js" defer></script>
+  </head>
+  <body class="relative">
+    <div class="flex w-screen h-screen">
+      <!-- SIDE BAR 1-->
+      <div
+        class="hidden lg:flex flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item6.svg" alt="home" /></a>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        class="w-52 hidden lg:flex flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="./dashboard.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a
+          href="./requestinspectionlist.html"
+          class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+
+      <div class="flex flex-col w-full">
+        <!-- TOP BAR -->
+        <div
+          class="flex justify-between lg:justify-end items-center border-b border-[#EEEEEE]"
+        >
+          <div class="w-[30px] h-[auto] ml-7 lg:hidden">
+            <img src="./assets/leadway-logo.svg" alt="leadway-logo" />
+          </div>
+
+          <div class="flex items-center justify-end gap-4 p-4">
+            <a href="#"
+              ><img src="./assets/notificationbell.svg" alt="home"
+            /></a>
+            <a href="#"><img src="./assets/avatar.svg" alt="home" /></a>
+            <span class="">Adesola</span>
+            <a href="#"><img src="./assets/caret.svg" alt="home" /></a>
+
+            <div class="w-[20px] h-[auto] lg:hidden">
+              <img
+                id="menuIcon"
+                class="open"
+                src="./assets/menu-open.svg"
+                alt="open"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN DASHBOARD AREA -->
+        <div class="flex flex-col py-5 px-10 gap-5 overflow-auto bg-[#FDFDFD]">
+          <!-- Create New Inspection Heading Container -->
+          <div
+            class="w-full flex items-start lg:items-center justify-between gap-5"
+          >
+            <!-- Inspection List Heading Container -->
+            <div class="flex flex-col">
+              <h1 class="text-[#34475E] text-xl">Create New Inspection</h1>
+              <p class="text-[#2F2F2F] text-xs">
+                See Inspections across all business classes
+              </p>
+            </div>
+
+            <!-- <button class="bg-[#FF7A00] text-white h-9 rounded-sm p-1 px-3">
+              + Create New Inspection
+            </button> -->
+
+            <div
+              class="max-[400px]:w-[30px] max-[400px]:h-[30px] min-[400px]:w-[40px] min-[400px]:h-[auto] closeNewInspection cursor-pointer"
+            >
+              <a href="" id="closeNewInspectionBtn">
+                <img src="./assets/closebutton.svg" alt="close button" />
+              </a>
+            </div>
+          </div>
+
+          <div class="p-6 px-0 w-full lg:w-full h-screen bg-transparent">
+            <!-- Inspection List Area Container -->
+            <div class="flex flex-col items-center gap-[50px]">
+              <div class="flex flex-col gap-7">
+                <!-- Pre & Post Images Container -->
+                <div
+                  class="flex flex-col items-center justify-center gap-6 md:flex-row"
+                >
+                  <img
+                    src="./assets/pre-lost-inspection-icon.svg"
+                    alt="pre"
+                    class="w-[200px] h-[auto] preloss cursor-pointer hiddenn"
+                  />
+
+                  <div class="relative postloss hiddenn">
+                    <img
+                      src="./assets/post-lost-inspection-icon.svg"
+                      alt="post"
+                      class="w-[200px] h-[auto] cursor-pointer"
+                    />
+                    <img
+                      src="./assets/right-arrow.svg"
+                      alt="arrow"
+                      class="absolute left-[20%] top-[40%] w-[40px]"
+                    />
+                  </div>
+                </div>
+
+                <!-- choose a class container -->
+                <div class="flex flex-col gap-3">
+                  <label for="class">Choose a class</label>
+
+                  <div class="custom-select-wrapper">
+                    <select class="custom-select">
+                      <option value="property" data-color="#6A0DAD">
+                        🔵 Property
+                        <span><img src="./assets/downarrow.svg" alt="" /></span>
+                      </option>
+
+                      <option value="motors" data-color="#FF7A00">
+                        🟠 Motors
+                      </option>
+
+                      <option value="marine" data-color="#6A0DAD">
+                        🟣 Marine
+                      </option>
+                      <option value="agric" data-color="#00FF00">
+                        🟢 Agric
+                      </option>
+                      <option value="bond" data-color="#FFD700">🟡 Bond</option>
+                      <option value="engineering" data-color="#FF0000">
+                        🔴 Engineering
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Create Request Button -->
+              <a href="" id="createRequestLink">
+                <button
+                  class="createRequestBtn bg-[#C3C4C6] text-white h-9 rounded-sm py-5 px-10 flex gap-3 justify-center items-center mb-[10px]"
+                >
+                  <img src="./assets/createicon.svg" alt="create" /> Create
+                  Request
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex h-screen absolute left-0 top-0 z-10">
+      <!-- SIDE BAR 1-->
+      <div
+        id="sidebarOne"
+        class="hidden flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        </span>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        </span>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        id="sidebarTwo"
+        class="w-52 hidden flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE] bg-[#fff]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+    </div>
+
+    <script>
+      const preloss = document.querySelector(".preloss");
+      const postloss = document.querySelector(".postloss");
+      let createRequest = document.querySelector(".createRequestBtn");
+      const closeNewInspection = document.querySelector(".closeNewInspection");
+      const createRequestLink = document.getElementById("createRequestLink");
+      const closeNewInspectionBtn = document.getElementById(
+        "closeNewInspectionBtn"
+      );
+
+      preloss.addEventListener("click", () => {
+        if (
+          preloss.classList.contains("hiddenn") ||
+          postloss.classList.contains("showw")
+        ) {
+          preloss.classList.add("showw");
+          preloss.classList.remove("hiddcreateRequestLinkenn");
+
+          postloss.classList.remove("showw");
+          postloss.classList.add("hiddenn");
+
+          createRequest.style.backgroundColor = "#FF7A00";
+          createRequestLink.href = "./preloss.html";
+        }
+      });
+
+      postloss.addEventListener("click", () => {
+        if (
+          postloss.classList.contains("hiddenn") ||
+          preloss.classList.contains("showw")
+        ) {
+          postloss.classList.add("showw");
+          postloss.classList.remove("hiddenn");
+
+          preloss.classList.remove("showw");
+          preloss.classList.add("hiddenn");
+
+          createRequest.style.backgroundColor = "#FF7A00";
+          createRequestLink.href = "./postloss.html";
+        }
+      });
+
+      closeNewInspection.addEventListener("click", () => {
+        if (
+          postloss.classList.contains("showw") ||
+          preloss.classList.contains("showw")
+        ) {
+          preloss.classList.remove("showw");
+          postloss.classList.remove("showw");
+          createRequest.style.backgroundColor = "#C3C4C6";
+          createRequestLink.href = "";
+        } else if (
+          preloss.classList.contains("hiddenn") &&
+          postloss.classList.contains("hiddenn")
+        ) {
+          closeNewInspectionBtn.href = "./dashboard.html";
+        }
+      });
+    </script>
+  </body>
+</html>

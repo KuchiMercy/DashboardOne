@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM PORTAL</title>
+    <link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="output.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+   
+    <script src="./script/dashboard.js" defer></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .active {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="flex w-screen h-screen">
+      <!-- SIDE BAR 1-->
+      <div
+        class="hidden lg:flex flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item6.svg" alt="home" /></a>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        class="w-52 hidden lg:flex flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a
+          href="/requestinspectionlist.html"
+          class="flex items-center justify-start gap-3 hover:text-[#FF7A00] focus:text-[#FF7A00]"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+
+      <div class="flex flex-col w-full">
+        <!-- TOP BAR -->
+        <div
+          class="flex justify-between lg:justify-end items-center border-b border-[#EEEEEE]"
+        >
+          <div class="w-[30px] h-[auto] ml-7 lg:hidden">
+            <img src="./assets/leadway-logo.svg" alt="leadway-logo" />
+          </div>
+
+          <div class="flex items-center justify-end gap-4 p-4">
+            <a href="#"
+              ><img src="./assets/notificationbell.svg" alt="home"
+            /></a>
+            <a href="#"><img src="./assets/avatar.svg" alt="home" /></a>
+            <span class="">Adesola</span>
+            <a href="#"><img src="./assets/caret.svg" alt="home" /></a>
+
+            <div class="w-[20px] h-[auto] lg:hidden">
+              <img
+                id="menuIcon"
+                class="open"
+                src="./assets/menu-open.svg"
+                alt="open"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN DASHBOARD AREA -->
+        <div class="flex flex-col p-10 gap-10 overflow-auto bg-[#FDFDFD]">
+          <div
+            class="w-full flex flex-col items-start lg:items-center justify-center gap-5 lg:justify-between lg:flex-row"
+          >
+            <div class="flex flex-col">
+              <h1 class="text-[#34475E] text-xl">Inspection List</h1>
+              <p class="text-[#2F2F2F] text-xs">
+                See Inspections across all business classes
+              </p>
+            </div>
+
+            <button class="bg-[#FF7A00] text-white h-9 rounded-sm p-1 px-3">
+              <a href="/createNewInspection.html">+ Create New Inspection</a>
+            </button>
+          </div>
+
+          <div
+            class="flex flex-col lg:flex-row items-start justify-start gap-2 lg:items-center lg:justify-between"
+          >
+            <div
+              class="p-[3px] pr-2 bg-[#f0f0f0] border border-[#eeeeee] rounded-md"
+            >
+              <button
+                data-target="a"
+                class="toggle-button border px-3 py-1 rounded-md active"
+              >
+                All Requests
+              </button>
+              <button
+                data-target="b"
+                class="toggle-button border px-3 py-1 rounded-md"
+              >
+                Ongoing
+              </button>
+              <button
+                data-target="c"
+                class="toggle-button border px-3 py-1 rounded-md"
+              >
+                Completed
+              </button>
+            </div>
+            <div
+              class="flex flex-col lg:flex-row items-start justify-center w-full gap-2 lg:items-center lg:justify-start lg:w-auto"
+            >
+              <label
+                for="search"
+                class="flex items-center justify-start p-2 border border-[#EEEEEE] bg-[#FFFFFF] rounded-sm gap-2"
+              >
+                <img src="./assets//search.svg" alt="search icon" />
+                <input type="search" class="outline-none" />
+              </label>
+
+              <div
+                class="bg-[#f3f3f3] border border-[#eeeeee] rounded-md flex items-center justify-between w-full py-2 px-4"
+              >
+                <span class="rounded-full w-2 h-2 bg-[#6941c6]"></span>
+                <p>Marine</p>
+                <img src="./assets/closeinpectionlist.svg" alt="" />
+              </div>
+
+              <label
+                class="bg-[#ffffff] border border-[#eeeeee] rounded-md flex items-center justify-center w-full text-nowrap p-2"
+              >
+                Sort by:
+                <select name="sortby" id="sortby" class="">
+                  <option value="class">Class</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div
+            class="content a p-6 px-0 w-[86vw] lg:w-full h-screen overflow-y-auto bg-[#FFFFFF] border border-[#EEEEEE] rounded-md"
+          >
+            <div class="overflow-x-auto">
+              <table class="mt-4 w-full min-w-max table-auto text-left">
+                <thead>
+                  <tr>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        ID
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Date
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Name
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Inspection Method
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Officer
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Status
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody id="inspection-list-table">
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Rovenheights properties
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Digital
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <button
+                        id="ongoing"
+                        class="antialiased font-sans text-sm leading-normal text-[#FF7A00] font-normal py-1 bg-[#FFDEBF] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Ongoing
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Shoprite Stores
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Manual
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="antialiased font-sans text-sm leading-normal text-[#027A48] font-normal py-1 bg-[#ECFDF3] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Completed
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div
+            class="content b hidden p-6 px-0 w-[86vw] lg:w-full h-screen overflow-y-auto bg-[#FFFFFF] border border-[#EEEEEE] rounded-md"
+          >
+            <div class="overflow-x-auto">
+              <table class="mt-4 w-full min-w-max table-auto text-left">
+                <thead>
+                  <tr>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        ID
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Date
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Name
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Inspection Method
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Officer
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Status
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody id="inspection-list-table">
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Rovenheights properties
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Digital
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <button 
+                      id="ongoing"
+                        class="antialiased font-sans text-sm leading-normal text-[#FF7A00] font-normal py-1 bg-[#FFDEBF] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Ongoing
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Shoprite Stores
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Manual
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <button
+                      id="ongoing"
+                        class="antialiased font-sans text-sm leading-normal text-[#FF7A00] font-normal py-1 bg-[#FFDEBF] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Ongoing
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div
+            class="content c hidden p-6 px-0 w-[86vw] lg:w-full h-screen overflow-y-auto bg-[#FFFFFF] border border-[#EEEEEE] rounded-md"
+          >
+            <div class="overflow-x-auto">
+              <table class="mt-4 w-full min-w-max table-auto text-left">
+                <thead>
+                  <tr>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        ID
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Date
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Name
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Inspection Method
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Officer
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                    <th
+                      class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                    >
+                      <p
+                        class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-start gap-2 font-normal leading-none opacity-70"
+                      >
+                        Status
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                          class="h-2 w-2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                          ></path>
+                        </svg>
+                      </p>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody id="inspection-list-table">
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Rovenheights properties
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Digital
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="antialiased font-sans text-sm leading-normal text-[#027A48] font-normal py-1 bg-[#ECFDF3] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Completed
+                      </p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        10321
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        15/06/2023
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Shoprite Stores
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Manual
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"
+                      >
+                        Mustapha Onasanya
+                      </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                      <p
+                        class="antialiased font-sans text-sm leading-normal text-[#027A48] font-normal py-1 bg-[#ECFDF3] text-center rounded-sm flex items-center justify-center w-full gap-2"
+                      >
+                        Completed
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex h-screen absolute left-0 top-0 z-10">
+      <!-- SIDE BAR 1-->
+      <div
+        id="sidebarOne"
+        class="hidden flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        </span>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        </span>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        id="sidebarTwo"
+        class="w-52 hidden flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE] bg-[#fff]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+    </div>
+
+    <script>
+       document.getElementById("ongoing").addEventListener("click", function () {
+        window.location.href = ("/ongoing.html");
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".toggle-button");
+        const contents = document.querySelectorAll(".content");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+            contents.forEach((content) => {
+              if (content.classList.contains(target)) {
+                content.classList.remove("hidden");
+              } else {
+                content.classList.add("hidden");
+              }
+            });
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+      });
+     
+    </script>
+  </body>
+</html>

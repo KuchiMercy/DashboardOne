@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM Portal</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/modalCreateNewInspection.js" defer></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="modal">
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-[13px]">
+          <h1 class="text-[#34475E] font-semibold text-[21px]">Send to TRM</h1>
+          <p class="text-[#13px] text-[#9F9F9F]">
+            Are you sure you want to send this request?
+          </p>
+        </div>
+
+        <div class="flex justify-end gap-5 text-[14px]">
+          <button  class="close-modal text-[#FF7A00]" type="button">
+           <a href="/createNewInspection.html"> Cancel</a>
+          </button>
+
+          <button class="bg-[#FF7A00] text-white h-9 rounded-[4px] p-1 px-6">
+            <a href="./modalInspectionNotification.html">Submit</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+  </body>
+</html>

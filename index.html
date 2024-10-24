@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leadway Underwriter Dashboard</title>
+    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Signup Page -->
+    <main class="flex">
+      <!-- section1 -->
+      <section
+        class="w-full md:w-[50%] h-screen flex flex-col items-center justify-center px-4 bg-[#fffbf6]"
+      >
+        <div class="max-w-sm w-full">
+          <div>
+            <img src="./assets/leadwayLogo.png" alt="leadwayLogo" />
+
+            <div class="mt-5 space-y-2">
+              <h3 class="text-[#585858] text-2xl font-bold sm:text-3xl">
+                Underwriter Dashboard
+              </h3>
+              <p class="text-[#AFB0B1]">
+                Welcome. Login to your portal account
+              </p>
+            </div>
+          </div>
+          <form onsubmit="event.preventDefault()" class="mt-8 space-y-5">
+            <div class="bg-white shadow-md py-2 px-4 rounded-md">
+              <label class="text-xs"> Login ID </label>
+              <span class="flex justify-between items-center"
+                ><input
+                  type="text"
+                  required
+                  placeholder="enter your login ID"
+                  class="w-full mt-2 text-sm text-gray-500 bg-transparent outline-none rounded-lg" />
+                <img src="./assets/profile.png" alt="" width="15"
+              /></span>
+            </div>
+            <div class="bg-white shadow-md py-2 px-4 rounded-md">
+              <span class="flex justify-between text-xs">
+                <label class="text-xs"> Password </label>
+                <button class="text-[#EE5331] text-xs font-bold" id="show">
+                  SHOW
+                </button>
+              </span>
+              <span class="flex justify-between items-center">
+                <input
+                  id="password"
+                  type="password"
+                  required
+                  placeholder="enter your password"
+                  class="w-full mt-2 text-sm text-gray-500 bg-transparent outline-none rounded-lg"
+                />
+                <img src="./assets/password.png" alt="" width="15" />
+              </span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <a href="#">Keep me logged in</a>
+              <a href="#">Reset Password</a>
+            </div>
+            <button
+              id="loginBtn"
+              class="w-full my-2 px-4 py-2 text-white font-medium bg-[#ff7a00] rounded-lg"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </section>
+      <!-- section2 -->
+      <section
+        class="md:w-[50%] bg-cover bg-center h-screen relative"
+        style="background-image: url('./assets/Broker.png')"
+      >
+        <a
+          href="#"
+          class="flex justify-center items-center absolute gap-2 right-5 top-5"
+        >
+          <img src="./assets/Vector.png" alt="" width="10" />
+          <p class="text-xs text-white">Help</p>
+        </a>
+        <div
+          class="hidden md:flex bg-white items-center bottom-[90px] right-10 rounded-md p-2 text-xs absolute mx-2"
+        >
+          <img
+            src="./assets/Group.png"
+            alt=""
+            width="40"
+            class="mx-2 bg-[#fffbf6]"
+          />
+          <div>
+            <p class="font-bold">Customer Management</p>
+            <p>
+              Manage all customers from individual customers to corporate or
+              group customers
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Toggle show button
+      let show = document.getElementById("show");
+      let password = document.getElementById("password");
+
+      show.addEventListener("click", function () {
+        if (password.type === "password") {
+          password.type = "text";
+          show.innerHTML = "HIDE";
+        } else {
+          password.type = "password";
+          show.innerHTML = "SHOW";
+        }
+      });
+
+      // navigate to dashboard
+
+      document
+        .getElementById("loginBtn")
+        .addEventListener("click", function () {
+          window.location.href = ("/dashboard.html");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM PORTAL</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="output.css">
+
+    
+    <script src="./script/dashboard.js" defer></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .active {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div class="flex w-screen h-screen">
+      <!-- SIDE BAR 1-->
+      <div
+        class="hidden lg:flex flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        <a href="#"><img src="./assets/item6.svg" alt="home" /></a>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        class="w-52 hidden lg:flex flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+
+      <div class="flex flex-col w-full">
+        <!-- TOP BAR -->
+        <div
+          class="flex justify-between lg:justify-end items-center border-b border-[#EEEEEE]"
+        >
+          <div class="w-[30px] h-[auto] ml-7 lg:hidden">
+            <img src="./assets/leadway-logo.svg" alt="leadway-logo" />
+          </div>
+
+          <div class="flex items-center justify-end gap-4 p-4">
+            <a href="#"
+              ><img src="./assets/notificationbell.svg" alt="home"
+            /></a>
+            <a href="#"><img src="./assets/avatar.svg" alt="home" /></a>
+            <span class="">Adesola</span>
+            <a href="#"><img src="./assets/caret.svg" alt="home" /></a>
+
+            <div class="w-[20px] h-[auto] lg:hidden">
+              <img
+                id="menuIcon"
+                class="open"
+                src="./assets/menu-open.svg"
+                alt="open"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN DASHBOARD AREA -->
+        <div class="flex flex-col p-10 gap-10 overflow-auto bg-[#FDFDFD]">
+          <main class="p-4">
+            <div class="mb-10 flex justify-between">
+              <div>
+                <h1 class="text-2xl font-bold text-gray-800">
+                  Create New Inspection
+                </h1>
+                <p class="text-sm text-gray-600">
+                  See Inspections across all business classes
+                </p>
+              </div>
+              <button
+                type="button"
+                class="cursor-pointer"
+                onclick="loadPage('../pages/createinspection.html', this)"
+              >
+                <span id="back" class="text-sm text-gray-500 mt-4 inline-block">
+                  <!-- <i class="material-icons" style="font-size: 16px"
+                    >chevron_left</i
+                  > -->
+                  Back to create request
+                </span>
+              </button>
+            </div>
+
+            <!-- Form -->
+            <form class="bg-white shadow rounded-lg p-6">
+              <h2 class="text-xl font-semibold mb-4">
+                Post-Loss Inspection - Property
+              </h2>
+              <hr />
+
+              <div class="my-5">
+                <div
+                  class="section1 grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+                >
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Policy Number (optional)</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <!-- <i class="material-icons">search</i> -->
+                      <img
+                        src="./assets/search.svg"
+                        alt="search"
+                        class="ml-2"
+                      />
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Claim Number (optional)</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <!-- <i class="material-icons">search</i> -->
+                      <img
+                        src="./assets/search.svg"
+                        alt="search"
+                        class="ml-2"
+                      />
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Insured For</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <!-- <i class="material-icons">search</i> -->
+                      <img
+                        src="./assets/search.svg"
+                        alt="search"
+                        class="ml-2"
+                      />
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Assign To</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <!-- <i class="material-icons">search</i> -->
+                      <img
+                        src="./assets/search.svg"
+                        alt="search"
+                        class="ml-2"
+                      />
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder="Search a personnel"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <hr />
+
+                <div
+                  class="section2 grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mt-5"
+                >
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Contact First Name</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Contact Last Name</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Contact Phone Number</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <select
+                        class="pl-3 pr-8 bg-transparent text-gray-500 sm:text-sm rounded-l-md focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      >
+                        <option>+234</option>
+                        <option>+1</option>
+                        <option>+44</option>
+                        <option>+91</option>
+                      </select>
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none pl-2"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Contact Email Address</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <input
+                        type="email"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <hr />
+
+                <div
+                  class="section1 grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mt-10"
+                >
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Risk House Number</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >Risk Address</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >State</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <select class="w-full bg-transparent focus:outline-none">
+                        <option>Select a State</option>
+                        <option>Lagos</option>
+                        <option>Abuja</option>
+                        <option>Kano</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="h-20">
+                    <label class="block text-sm font-medium text-gray-700"
+                      >LGA</label
+                    >
+                    <div
+                      class="h-12 border border-gray-300 rounded-lg flex items-center p-1 mt-1 gap-1"
+                    >
+                      <select class="w-full bg-transparent focus:outline-none">
+                        <option>Select an LGA</option>
+                        <option>Ikeja</option>
+                        <option>Surulere</option>
+                        <option>Gwagwalada</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="mt-7">
+                  <label
+                    for="property-description"
+                    class="block text-sm font-medium text-gray-700"
+                    >Property description</label
+                  >
+                  <div class="mt-5 border border-gray-300 rounded-lg p-2">
+                    <textarea
+                      id="property-description"
+                      rows="10"
+                      class="w-full border-none outline-none resize-none text-gray-700"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="relative inline-block mt-5">
+                  <p class="text-orange-500 text-xs cursor-pointer">
+                    attach document
+                  </p>
+                  <input
+                    type="file"
+                    class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+                  />
+                </div>
+
+                <div class="flex justify-between mt-5 mb-5">
+                  <div class="w-48"></div>
+                  <button
+                  id="generate"
+                    type="button"
+                    class="bg-orange-500 text-white py-2 px-4 rounded"
+                  >
+                    Generate
+                  </button>
+                </div>
+              </div>
+            </form>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="flex h-screen absolute left-0 top-0 z-10">
+      <!-- SIDE BAR 1-->
+      <div
+        id="sidebarOne"
+        class="hidden flex-col items-center justify-start bg-[#2F2F2F] w-16 h-screen pt-32 gap-8"
+      >
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item1.svg" alt="home" /></a>
+        </span>
+        <span class="bg-[#ffffff] w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item2.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item3.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item4.svg" alt="home" /></a>
+        </span>
+        <span class="w-full inline-flex justify-center py-2">
+          <a href="#"><img src="./assets/item5.svg" alt="home" /></a>
+        </span>
+      </div>
+
+      <!-- SIDE BAR 2 -->
+      <div
+        id="sidebarTwo"
+        class="w-52 hidden flex-col items-start justify-start pt-12 p-5 gap-5 border border-[#EEEEEE] bg-[#fff]"
+      >
+        <a href="#" class="flex items-center"
+          ><img src="./assets/logo.png" alt="logo"
+        /></a>
+        <span class="text-slate-500">TRM</span>
+        <a href="/dashboard.html" class="flex items-center justify-start gap-3 text-[#FF7A00]"
+          ><img src="./assets/overview.svg" alt="home" />Overview</a
+        >
+        <a href="/requestinspectionlist.html" class="flex items-center justify-start gap-3"
+          ><img src="./assets/requests.svg" alt="home" />Requests</a
+        >
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.toggle-button');
+        const contents = document.querySelectorAll('.content');
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', function () {
+            const target = this.getAttribute('data-target');
+            contents.forEach((content) => {
+              if (content.classList.contains(target)) {
+                content.classList.remove('hidden');
+              } else {
+                content.classList.add('hidden');
+              }
+            });
+            buttons.forEach((btn) => btn.classList.remove('active'));
+            this.classList.add('active');
+          });
+        });
+      });
+      // Takes the link back to the create page
+      document.getElementById("back").addEventListener("click", function(){
+        window.location.href = ("/createNewInspection.html")
+      })
+       // Takes the page to the modal page
+       document.getElementById("generate").addEventListener("click", function(){
+        window.location.href = ("/modalCreateNewInspection.html")
+      })
+    </script>
+  </body>
+</html>

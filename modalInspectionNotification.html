@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRM Portal</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/modalInspectionNotification.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- hidden -->
+    <div class="modal2">
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-2">
+          <div class="close-modal flex justify-end cursor-pointer">
+            <img src="./assets/close-x.svg" alt="close icon" class="w-[28px]" />
+          </div>
+
+          <div class="flex flex-col items-center gap-[40px]">
+            <div class="w-[110px]">
+              <img src="./assets/handsOkay.svg" alt="" />
+            </div>
+
+            <p class="text-[13px] text-[#00B388] text-center font-[800]">
+              You've successfully created new <br />
+              Inspection ID-23321 for PRIME GARDENS
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-3 text-[14px]">
+          <button id="inspection"
+            class="close-modal rounded-[4px] border border-[#9FA8AF] px-3"
+            type="button"
+          >
+            Go to request list
+          </button>
+
+          <button id="createNew" class="bg-[#FF7A00] text-white h-9 rounded-[4px] p-1 px-3">
+            Create new inspection
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay2"></div>
+    <!-- hidden -->
+
+    <script>
+      // Navigate to inspection list
+      document.getElementById("inspection").addEventListener("click", function(){
+        window.location.href = ('/requestinspectionlist.html')
+      })
+      // Navigate to create new inspection
+      document.getElementById("createNew").addEventListener("click", function(){
+        window.location.href = ('/createNewInspection.html')
+      })
+    </script>
+  </body>
+</html>
